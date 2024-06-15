@@ -18,7 +18,8 @@ public class GameHistory {
     @TableId(type = IdType.AUTO)
     private Long id;
     private String userAccount;
+    private String gameId;
     private String startTime;
     private String gameTime;
-    private String state;
+    private int state;
 }

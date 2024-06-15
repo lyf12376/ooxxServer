@@ -17,4 +17,9 @@ public class GameHistoryServiceImpl implements GameHistoryService {
     public List<GameHistory> getGameHistoryByUserAccount(String userAccount) {
         return gameHistoryMapper.getUserGameHistoryByUserAccount(userAccount);
     }
+
+    @Override
+    public void insertGameHistory(GameHistory gameHistory) {
+        gameHistoryMapper.insertGameHistory(gameHistory);
+    }
 }
