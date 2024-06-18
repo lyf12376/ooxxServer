@@ -29,8 +29,7 @@ public class RankGameController {
     @PostMapping("/matching")
     public DeferredResult<ResponseEntity<Response<List<RankGame>>>> startMatching(@RequestBody RankGame rankGame) {
         DeferredResult<ResponseEntity<Response<List<RankGame>>>> output = new DeferredResult<>();
-        rankGameService.WaitGame(rankGame.getUserAccount(), rankGame.getUserName());
-        ForkJoinPool.commonPool().submit(() -> rankGameService.matching(rankGame, output));
+        rankGameService.matching(rankGame, output);
         return output;
     }
 
