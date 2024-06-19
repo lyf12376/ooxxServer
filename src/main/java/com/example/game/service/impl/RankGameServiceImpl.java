@@ -22,12 +22,6 @@ public class RankGameServiceImpl implements RankGameService {
     @Resource
     private RankGameMapper rankGameMapper;
 
-    private Boolean stopMatching = false;
-
-    @Override
-    public void WaitGame(String userAccount, String userName) {
-        rankGameMapper.startRanking(userAccount, userName);
-    }
 
     @Override
     public void matching(RankGame rankGame, DeferredResult<ResponseEntity<Response<List<RankGame>>>> output) {
@@ -37,13 +31,9 @@ public class RankGameServiceImpl implements RankGameService {
     }
 
     @Override
-    public void matchingSuccess(String userAccount1, String userAccount2) {
-        rankGameMapper.cancelRanking(userAccount1);
-        rankGameMapper.cancelRanking(userAccount2);
-
+    public void cancelMatching(RankGame rankGame) {
+        RankPool.INSTANCE.getRankQueue().removeIf(rankQueue -> rankQueue.getRankGame().getUserAccount().equals(rankGame.getUserAccount()));
     }
 
-    public void stopMatching() {
-        stopMatching = true;
-    }
+
 }

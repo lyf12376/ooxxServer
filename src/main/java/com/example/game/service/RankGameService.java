@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface RankGameService {
-    void WaitGame(String userAccount, String userName);
+
 
     void matching(RankGame rankGame, DeferredResult<ResponseEntity<Response<List<RankGame>>>> output);
 
-    void matchingSuccess(String userAccount1, String userAccount2);
+    void cancelMatching(RankGame rankGame);
 }

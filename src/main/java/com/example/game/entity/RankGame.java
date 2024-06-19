@@ -14,4 +14,5 @@ public class RankGame {
     @TableId
     private String userAccount;
     private String userName;
+    private int rank;
 }

@@ -33,4 +33,16 @@ public class RankGameController {
         return output;
     }
 
+    @PostMapping("/cancel")
+    public void cancelMatching(@RequestBody RankGame rankGame) {
+        rankGameService.cancelMatching(rankGame);
+    }
+
+    @PostMapping("/start")
+    public void startGame(@RequestBody RankGame rankGame) {
+
+    }
+
+
+
 }
