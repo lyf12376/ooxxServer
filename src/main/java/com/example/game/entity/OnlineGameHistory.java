@@ -1,25 +1,25 @@
 package com.example.game.entity;
 
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("game_history")
-public class GameHistory {
-    @TableId(type = IdType.AUTO)
-    private Long id;
-    private String userAccount;
+@TableName("online_game_history")
+public class OnlineGameHistory {
+    @TableId
     private String gameId;
+    private String grid;
+    private String init;
+    private String userAccount1;
+    private String userAccount2;
+    private String userNickName1;
+    private String userNickName2;
     private String startTime;
     private int gameTime;
-    private int state;
+    private String winner;
 }

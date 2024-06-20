@@ -1,7 +1,9 @@
-package com.example.game.rankPool;
+package com.example.game.rankPool.Rank;
 
 import com.example.game.common.Response;
 import com.example.game.entity.RankGame;
+import com.example.game.rankPool.Prepare.WaitPool;
+import com.example.game.rankPool.Prepare.WaitQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +65,10 @@ public class Rank {
                 ArrayList<RankGame> gameList = new ArrayList<>();
                 RankQueue competitor1 = group.poll();
                 RankQueue competitor2 = group.poll();
+                ConcurrentLinkedQueue<WaitQueue> waitQueue = WaitPool.INSTANCE.getWaitQueue();
+                if (competitor1 != null && competitor2 != null) {
+                    waitQueue.add(new WaitQueue(competitor1.rankGame, 0,competitor2.rankGame,0));
+                }
                 if (competitor1 != null && competitor2 != null) {
                     gameList.add(competitor1.rankGame);
                     gameList.add(competitor2.rankGame);

@@ -1,4 +1,4 @@
-package com.example.game.rankPool;
+package com.example.game.rankPool.Rank;
 
 import com.example.game.common.Response;
 import com.example.game.entity.RankGame;

@@ -3,8 +3,8 @@ package com.example.game.service.impl;
 import com.example.game.common.Response;
 import com.example.game.entity.RankGame;
 import com.example.game.mapper.RankGameMapper;
-import com.example.game.rankPool.RankPool;
-import com.example.game.rankPool.RankQueue;
+import com.example.game.rankPool.Rank.RankPool;
+import com.example.game.rankPool.Rank.RankQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.example.game.service.RankGameService;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.async.DeferredResult;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 
